@@ -9,6 +9,15 @@ def encode(password):
     
     return res
 
+def decode(password):
+    decode = ''
+    for value in password:
+        decode_value = int(value) - 3
+        if decode_value < 0:
+            decode_value += 10
+        decode += str(decode_value)
+    return decode
+
 
 def main():
     while True:
@@ -19,7 +28,7 @@ def main():
         if mode == 'encode':
             print(f'The encoded password is {encode(password)}')
         elif mode == 'decode':
-            print(f'The decoded password is ')
+            print(f'The decoded password is {decode(password)}')
         
         if input('exit? (Y/n): ').lower() == 'n':
             break
